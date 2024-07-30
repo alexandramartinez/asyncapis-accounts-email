@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mule xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:anypoint-mq="http://www.mulesoft.org/schema/mule/anypoint-mq" xmlns:apikit-asyncapi="http://www.mulesoft.org/schema/mule/apikit-asyncapi" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd http://www.mulesoft.org/schema/mule/apikit-asyncapi http://www.mulesoft.org/schema/mule/apikit-asyncapi/current/mule-apikit-asyncapi.xsd http://www.mulesoft.org/schema/mule/anypoint-mq http://www.mulesoft.org/schema/mule/anypoint-mq/current/mule-anypoint-mq.xsd">
+  <anypoint-mq:config name="Anypoint_MQ_configuration_AnypointMQ">
+    <anypoint-mq:connection clientId="${anypointmq.server.AnypointMQ.clientAppId}" clientSecret="${anypointmq.server.AnypointMQ.clientSecret}" url="${anypointmq.server.AnypointMQ.url}" />
+  </anypoint-mq:config>
+  <configuration-properties file="${env}-properties.properties" />
+  <global-property name="env" value="dev" />
+  <apikit-asyncapi:config name="asyncapi-config" apiDefinition="${api.path}">
+    <apikit-asyncapi:anypoint-mq-configs>
+      <apikit-asyncapi:anypoint-mq-config serverKey="AnypointMQ" configRef="Anypoint_MQ_configuration_AnypointMQ" />
+    </apikit-asyncapi:anypoint-mq-configs>
+  </apikit-asyncapi:config>
+</mule>

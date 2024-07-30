@@ -1,0 +1,37 @@
+asyncapi: '2.6.0'
+info:
+  title: Email Service
+  version: '1.0.0'
+  description: Subscribed to receive the UserSignedUp event to send the new user a welcome email.
+servers:
+  AnypointMQ:
+    url: https://your-mq-url
+    protocol: anypointmq
+channels:
+  user-signup:
+    publish:
+      operationId: onUserSignUp
+      message:
+        $ref: "#/components/messages/UserSignedUp"
+components:
+  messages:
+    UserSignedUp:
+      payload:
+        type: object
+        properties:
+          firstName: 
+            type: string
+            examples:
+              - Alex
+          lastName: 
+            type: string
+            examples:
+              - Martinez
+          email:
+            type: string
+            examples:
+              - fake@email.email
+          createdAt:
+            type: string
+            examples:
+              - 2024-01-01T15:00:00Z
