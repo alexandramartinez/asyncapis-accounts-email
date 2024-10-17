@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mule xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:apikit-asyncapi="http://www.mulesoft.org/schema/mule/apikit-asyncapi" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:kafka="http://www.mulesoft.org/schema/mule/kafka" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd http://www.mulesoft.org/schema/mule/apikit-asyncapi http://www.mulesoft.org/schema/mule/apikit-asyncapi/current/mule-apikit-asyncapi.xsd http://www.mulesoft.org/schema/mule/kafka http://www.mulesoft.org/schema/mule/kafka/current/mule-kafka.xsd">
+  <kafka:consumer-config name="Apache_Kafka_Consumer_configuration_Kafka">
+    <kafka:consumer-plaintext-connection>
+      <kafka:bootstrap-servers>
+        <kafka:bootstrap-server value="localhost:9092" />
+      </kafka:bootstrap-servers>
+      <kafka:topic-patterns>
+        <kafka:topic-pattern value="user-signup" />
+      </kafka:topic-patterns>
+    </kafka:consumer-plaintext-connection>
+  </kafka:consumer-config>
+  <configuration-properties file="${env}-properties.properties" />
+  <global-property name="env" value="dev" />
+  <apikit-asyncapi:config name="asyncapi-config" apiDefinition="${api.path}">
+    <apikit-asyncapi:kafka-configs>
+      <apikit-asyncapi:kafka-config serverKey="Kafka" consumerConfigRef="Apache_Kafka_Consumer_configuration_Kafka" />
+    </apikit-asyncapi:kafka-configs>
+  </apikit-asyncapi:config>
+</mule>

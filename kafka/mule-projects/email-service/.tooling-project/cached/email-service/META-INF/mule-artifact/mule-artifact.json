@@ -1,0 +1,27 @@
+{
+  "configs": [
+    "global-configs.xml",
+    "flows.xml"
+  ],
+  "secureProperties": [],
+  "redeploymentEnabled": true,
+  "name": "7c5105dc-9e17-4160-9dde-01945967692e:email-service:1.0.0-SNAPSHOT",
+  "minMuleVersion": "4.8.0",
+  "requiredProduct": "MULE_EE",
+  "classLoaderModelLoaderDescriptor": {
+    "id": "mule",
+    "attributes": {
+      "exportedPackages": [],
+      "exportedResources": [
+        "log4j2.xml",
+        "global-configs.xml",
+        "flows.xml",
+        "dev-properties.properties"
+      ]
+    }
+  },
+  "bundleDescriptorLoader": {
+    "id": "mule",
+    "attributes": {}
+  }
+}
