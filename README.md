@@ -14,7 +14,7 @@ Follow these videos to build your own AsyncAPIs:
 
 - ▶️ [Design AsyncAPI Specifications in Design Center](https://www.youtube.com/watch?v=GQXRW5C6U0s)
 - ▶️ [Implement AsyncAPIs with Anypoint MQ and Anypoint Code Builder](https://www.youtube.com/watch?v=sf7zx_KHxLA)
-- ▶️ (tbd) [Design, Govern, and Implement AsyncAPIs Locally with Kafka](https://www.youtube.com/@mulesoftvids/videos)
+- ▶️ [Design, Govern, and Implement AsyncAPIs Locally with Kafka](https://www.youtube.com/watch?v=825T7VpyaBk)
 
 ## Folders structure
 
