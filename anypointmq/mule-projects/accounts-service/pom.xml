@@ -54,7 +54,7 @@
     </pluginRepositories>
     <dependencies>
         <dependency>
-            <groupId>be76a6f7-d013-4b8d-aff8-5f7562f5b10e</groupId>
+            <groupId>your-org-id</groupId>
             <artifactId>account-service</artifactId>
             <version>1.0.1</version>
             <classifier>evented-api</classifier>

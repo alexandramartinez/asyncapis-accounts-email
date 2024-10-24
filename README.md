@@ -2,8 +2,10 @@
 
 All the resources you need to implement a functional simple architecture with an Accounts and an Email services using AsyncAPI, Anypoint Code Builder, and brokers like AnypointMQ and Kafka.
 
-Projects and specifications created during this live stream on July 30, 2024: 
+Projects and specifications created during these live streams: 
 - ▶️ [Accounts/Email AsyncAPIs with ACB and AnypointMQ](https://www.twitch.tv/videos/2211325574)
+- ▶️ [Exploring AsyncAPIs in ACB using Kafka](https://www.twitch.tv/videos/2282483982)
+- ▶️ [Exploring AsyncAPIs in ACB using Salesforce Platform Events](https://www.twitch.tv/videos/2284108803)
 
 Architecture based on this article by AsyncAPI: 
 - 📘 [Understanding AsyncAPIs with a Practical Example](https://www.asyncapi.com/blog/understanding-asyncapis)
@@ -44,3 +46,14 @@ Follow these videos to build your own AsyncAPIs:
 
 > [!IMPORTANT]
 > Make sure you are running Kafka locally in port 9092 or change it in the specifications before implementing them. For more information to run Kafka locally, see [this](https://github.com/sahansera/kafka-docker).
+
+### Salesforce Platform Events
+
+> [!IMPORTANT]
+> Set up your Salesforce Platform Event, Object, and Trigger Flow before creating the Mule specification/project.
+
+1. Go to the [sfplatformevents/](/sfplatformevents/) folder
+2. Create the Email Service AsyncAPI in Anypoint Code Builder using this specification: [email-service.yaml](/sfplatformevents/specifications/email-service.yaml)
+3. Publish it to Exchange and implement it in Anypoint Code Builder. Take a look at the code in [email-service/](/sfplatformevents/mule-projects/email-service/) for guidance
+4. Make sure you add your properties inside the `dev-properties.properties` file
+

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mule xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:apikit-asyncapi="http://www.mulesoft.org/schema/mule/apikit-asyncapi" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd http://www.mulesoft.org/schema/mule/apikit-asyncapi http://www.mulesoft.org/schema/mule/apikit-asyncapi/current/mule-apikit-asyncapi.xsd http://www.mulesoft.org/schema/mule/salesforce-pub-sub http://www.mulesoft.org/schema/mule/salesforce-pub-sub/current/mule-salesforce-pub-sub.xsd http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+  <flow name="LISTEN:onUserCreateOrUpdate">
+    <apikit-asyncapi:message-listener config-ref="asyncapi-config" channelName="/event/AsyncAPI_Event__e">
+      <apikit-asyncapi:servers>
+        <apikit-asyncapi:server value="Salesforce" />
+      </apikit-asyncapi:servers>
+    </apikit-asyncapi:message-listener>
+    <logger level="INFO" message="#[payload]" />
+  </flow>
+</mule>
