@@ -23,6 +23,7 @@ Complement your learnings with these blog posts:
 - [Design AsyncAPI Specifications With a Practical Example](https://blogs.mulesoft.com/dev-guides/how-to-design-asyncapi-specifications/)
 - [Develop AsyncAPIs With Anypoint MQ and Anypoint Code Builder](https://blogs.mulesoft.com/dev-guides/develop-asyncapis-with-anypoint-mq-and-anypoint-code-builder/)
 - TBD - [Design, Govern & Implement AsyncAPIs in Anypoint Code Builder](https://blogs.mulesoft.com/)
+- TBD - [Designing AsyncAPIs using Salesforce Platform Events vs. CDC](https://blogs.mulesoft.com/)
 
 ## Folders structure
 
