@@ -1,0 +1,52 @@
+asyncapi: '2.6.0'
+info:
+  title: Account Service
+  version: '1.0.0'
+  description: Publishes the UserSignedUp event when a new user account is created.
+  contact:
+      name: Alex Martinez
+      email: alexandra.martinez@salesforce.com
+      url: alexmartinez.ca
+  license:
+      name: test
+      url: test
+defaultContentType: application/json
+tags:
+    - name: solace
+      description: makes use of Solace PubSub+
+servers:
+  Solace:
+    protocol: solace
+    bindings:
+      solace:
+        msgVpn: default
+    url: localhost:55554
+channels:
+  user-signup:
+    subscribe:
+      description: Publishes the UserSignedUp event
+      operationId: emitUserSignUpEvent
+      message:
+        $ref: "#/components/messages/UserSignedUp"
+components:
+  messages:
+    UserSignedUp:
+      payload:
+        type: object
+        properties:
+          firstName: 
+            type: string
+            examples:
+              - Alex
+          lastName: 
+            type: string
+            examples:
+              - Martinez
+          email:
+            type: string
+            examples:
+              - fake@email.email
+          createdAt:
+            type: string
+            examples:
+              - 2024-01-01T15:00:00Z

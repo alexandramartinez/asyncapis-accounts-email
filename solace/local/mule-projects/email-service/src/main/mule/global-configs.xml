@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mule xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:apikit-asyncapi="http://www.mulesoft.org/schema/mule/apikit-asyncapi" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:solace="http://www.mulesoft.org/schema/mule/solace" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd http://www.mulesoft.org/schema/mule/apikit-asyncapi http://www.mulesoft.org/schema/mule/apikit-asyncapi/current/mule-apikit-asyncapi.xsd http://www.mulesoft.org/schema/mule/solace http://www.mulesoft.org/schema/mule/solace/current/mule-solace.xsd">
+  <solace:config name="Solace_configuration_Solace">
+    <solace:connection clientUserName="${solace.server.Solace.clientUserName}" password="${solace.server.Solace.password}" brokerHost="localhost:55554" msgVPN="${solace.binding.Solace.msgVpn}">
+      <!-- <solace:oauth-configuration>
+        <solace:oauth-client-credentials-parameter tokenProviderUrl="${solace.server.Solace.tokenProviderUrl}" clientId="${solace.server.Solace.clientId}" clientSecret="${solace.server.Solace.clientSecret}">
+          <solace:oauth-token-refresh-buffer-time />
+        </solace:oauth-client-credentials-parameter>
+      </solace:oauth-configuration> -->
+    </solace:connection>
+  </solace:config>
+  <configuration-properties file="${env}-properties.properties" />
+  <global-property name="env" value="dev" />
+  <apikit-asyncapi:config name="asyncapi-config" apiDefinition="${api.path}">
+    <apikit-asyncapi:solace-configs>
+      <apikit-asyncapi:solace-config serverKey="Solace" configRef="Solace_configuration_Solace" />
+    </apikit-asyncapi:solace-configs>
+  </apikit-asyncapi:config>
+</mule>
