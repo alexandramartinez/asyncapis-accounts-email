@@ -1,11 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<mule xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:apikit-asyncapi="http://www.mulesoft.org/schema/mule/apikit-asyncapi" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd http://www.mulesoft.org/schema/mule/apikit-asyncapi http://www.mulesoft.org/schema/mule/apikit-asyncapi/current/mule-apikit-asyncapi.xsd http://www.mulesoft.org/schema/mule/salesforce-pub-sub http://www.mulesoft.org/schema/mule/salesforce-pub-sub/current/mule-salesforce-pub-sub.xsd http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+<mule xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:apikit-asyncapi="http://www.mulesoft.org/schema/mule/apikit-asyncapi" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd http://www.mulesoft.org/schema/mule/apikit-asyncapi http://www.mulesoft.org/schema/mule/apikit-asyncapi/current/mule-apikit-asyncapi.xsd http://www.mulesoft.org/schema/mule/salesforce-pub-sub http://www.mulesoft.org/schema/mule/salesforce-pub-sub/current/mule-salesforce-pub-sub.xsd http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+	http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
   <flow name="LISTEN:onUserCreateOrUpdate">
     <apikit-asyncapi:message-listener config-ref="asyncapi-config" channelName="/event/AsyncAPI_Event__e">
       <apikit-asyncapi:servers>
         <apikit-asyncapi:server value="Salesforce" />
       </apikit-asyncapi:servers>
     </apikit-asyncapi:message-listener>
+    <set-variable variableName="AsyncAPI_User" value="#[payload]" doc:name="AsyncAPI_User" doc:id="qugbeg" />
     <logger level="INFO" message="#[payload]" />
+    <logger doc:name="Sending email..." doc:id="txvopv" message="This is where we would send the email..." />
+    <ee:transform doc:name="Set Platform Event payload" doc:id="mxwmln">
+      <ee:message>
+        <ee:set-payload><![CDATA[#[%dw 2.0
+output application/json
+---
+[{
+  CreatedById: vars."AsyncAPI_User".event.CreatedById,
+  CreatedDate: now() as Number,
+  "Email__c": vars."AsyncAPI_User".event."Email__c",
+  "Email_Status__c": "Email has been sent."
+}]
+]]]></ee:set-payload>
+      </ee:message>
+    </ee:transform>
+    <logger doc:name="Logger" doc:id="erbdcs" message="#[payload]" />
+    <apikit-asyncapi:publish config-ref="asyncapi-config" channelName="/event/Sent_Email__e" serverName="Salesforce" doc:name="Publish" doc:id="clruax" disableContentValidation="true" />
   </flow>
 </mule>

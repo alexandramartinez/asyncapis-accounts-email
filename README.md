@@ -56,7 +56,7 @@ Complement your learnings with these blog posts:
 > Set up your Salesforce Platform Event, Object (and Tab), and Trigger Flow before creating the Mule specification/project. For detailed instructions see the resources at the top.
 
 > [!NOTE]
-> This example only includes subscription to Platform Events. I'm working on the example to publish an event.
+> This example takes one Platform Event and publishes another one. As opposed to Anypoint MQ, Kafka, and Solace, in this example there are two channels and only one AsyncAPI spec/app.
 
 1. Go to the [sfplatformevents/](/sfplatformevents/) folder
 2. Create the Email Service AsyncAPI in Anypoint Code Builder using this specification: [email-service.yaml](/sfplatformevents/specifications/email-service.yaml) - note that you will have to adjust it to your own Platform Event / Object fields

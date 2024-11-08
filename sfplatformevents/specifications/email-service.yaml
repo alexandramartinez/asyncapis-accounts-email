@@ -2,7 +2,7 @@ asyncapi: '2.6.0'
 info:
   title: Email Service
   version: '1.0.0'
-  description: Subscribed to receive the AsyncAPI_Event__e Platform Event to send the user a welcome email.
+  description: Subscribed to receive the AsyncAPI_Event__e Platform Event to send the user a welcome email and return the Sent_Email__e Platform Event after the email is sent for the object to be updated.
   contact:
     name: Alex Martinez
     email: alexandra.martinez@salesforce.com
@@ -23,12 +23,40 @@ servers:
 channels:
   /event/AsyncAPI_Event__e:
     publish:
-      description: Subscribed to receive the AsyncAPI_Event__e platform event
+      description: Subscribed to receive the AsyncAPI_Event__e platform event to send an email
       operationId: onUserCreateOrUpdate
       message:
         $ref: "#/components/messages/AsyncAPIEvent"
+  /event/Sent_Email__e:
+    subscribe:
+      description: Publishes the Sent_Email__e Platform Event after the email is sent for the object to be updated
+      operationId: afterEmailSent
+      message:
+        $ref: "#/components/messages/SentEmail"
 components:
   messages:
+    SentEmail:
+      payload:
+        type: array
+        items:
+          type: object
+          properties:
+            CreatedById:
+              type: string
+              examples:
+                - 005aj8VZWLAA4
+            CreatedDate:
+              type: number
+              examples: 
+                - 1731036421
+            Email__c:
+              type: string
+              examples:
+                - fake@email.email
+            Email_Status__c:
+              type: string
+              examples:
+                - Email has been sent.
     AsyncAPIEvent:
       payload:
         type: object
