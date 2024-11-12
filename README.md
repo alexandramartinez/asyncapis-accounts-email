@@ -5,6 +5,11 @@ All the resources you need to implement a functional simple architecture with an
 Architecture based on this article by AsyncAPI: 
 - 📘 [Understanding AsyncAPIs with a Practical Example](https://www.asyncapi.com/blog/understanding-asyncapis)
 
+## Similar repos
+
+[![](https://github-readme-stats.vercel.app/api/pin/?username=alexandramartinez&repo=asyncapi-mule-sfpe&theme=material-palenight)](https://github.com/alexandramartinez/asyncapi-mule-sfpe)
+[![](https://github-readme-stats.vercel.app/api/pin/?username=alexandramartinez&repo=asyncapi-example&theme=vision-friendly-dark)](https://github.com/alexandramartinez/asyncapi-example)
+
 ## Resources
 
 Follow these videos to build your own AsyncAPIs:
