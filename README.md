@@ -18,7 +18,7 @@ Complement your learnings with these blog posts:
 - [Design AsyncAPI Specifications With a Practical Example](https://blogs.mulesoft.com/dev-guides/how-to-design-asyncapi-specifications/)
 - [Develop AsyncAPIs With Anypoint MQ and Anypoint Code Builder](https://blogs.mulesoft.com/dev-guides/develop-asyncapis-with-anypoint-mq-and-anypoint-code-builder/)
 - [Develop AsyncAPIs on Anypoint Code Builder with Solace PubSub+ locally (Docker)](https://www.prostdev.com/post/how-to-develop-asyncapis-on-anypoint-code-builder-with-solace-pubsub-locally-docker)
-- TBD - [Design, Govern & Implement AsyncAPIs in Anypoint Code Builder](https://blogs.mulesoft.com/)
+- [Design, Govern, and Implement AsyncAPIs in Anypoint Code Builder](https://blogs.mulesoft.com/dev-guides/asyncapis-in-anypoint-code-builder/)
 - TBD - [Designing AsyncAPIs using Salesforce Platform Events vs. CDC](https://blogs.mulesoft.com/)
 
 ## Folders structure
