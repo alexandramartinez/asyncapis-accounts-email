@@ -8,7 +8,6 @@ Architecture based on this article by AsyncAPI:
 ## Similar repos
 
 [![](https://github-readme-stats.vercel.app/api/pin/?username=alexandramartinez&repo=asyncapi-mule-sfpe&theme=material-palenight)](https://github.com/alexandramartinez/asyncapi-mule-sfpe)
-[![](https://github-readme-stats.vercel.app/api/pin/?username=alexandramartinez&repo=asyncapi-example&theme=vision-friendly-dark)](https://github.com/alexandramartinez/asyncapi-example)
 
 ## Resources
 
