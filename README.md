@@ -16,6 +16,7 @@ Follow these videos to build your own AsyncAPIs:
 - ▶️ [Design AsyncAPI Specifications in Design Center](https://www.youtube.com/watch?v=GQXRW5C6U0s)
 - ▶️ [Implement AsyncAPIs with Anypoint MQ and Anypoint Code Builder](https://www.youtube.com/watch?v=sf7zx_KHxLA)
 - ▶️ [Design, Govern, and Implement AsyncAPIs Locally with Kafka](https://www.youtube.com/watch?v=825T7VpyaBk)
+- ▶️ [Create an AsyncAPI in Anypoint Code Builder with Salesforce Platform Events](https://www.youtube.com/watch?v=kUW1rOKDqac)
 
 Complement your learnings with these blog posts:
 
